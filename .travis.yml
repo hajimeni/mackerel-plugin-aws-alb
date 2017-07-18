@@ -1,0 +1,14 @@
+language: go
+go:
+- 1.8.3
+before_deploy:
+- ./build.sh
+deploy:
+  provider: releases
+  api_key:
+    secure: jhT9KqfUY1sVYpU/PXNT1mfXdfJrSPKz56cJnG6lFQY2KaBAKKPbj8lc0OoUogfYzjX9zajvdxED0NI0q2StTQ6CKCNIr+P/dQCtxmB/YfhblcEWcSWd8mpjUV2/XdLEremYcYw5bPsbPu/578DHXGY/K0/GhGOJ3wtmV7Kv3476EztR0RRENrNMfFz/EpmeFg+7Pu+MOv7xpnMODNxjTb1tUfC79iOsDM5wmphueMzaFm7awiwWQ8QwyCs27kMQTyHh5l1R0nkioxJ8vxbZ7/sllDGJ6WlomPn9UR9+fl+LiUb8bBvJJp3eBxtCZ+qQ32GSUOLTiG5if5Nka6VkI33QXCEbEvS3PUuwPZROBzvSheAzjEKUEdwnp95BclNdRy/m+RUH/dr+P2XMwxuqQXMwztQIytfXPrGWjh0h1D6djzDzjZN6Iv73JsB/iZF9NvA1IsKu3T2gmZU1nuvUGH5JGK3xGe3iOo36RV7s+jmFeebycB8lnq/9dq9MHmHUsFtXrRndVtCjg6lgjP989FTFFUUQuhfJe5mytYRoMKFzTUhQlcQEurYGz36OVRj39V9q14iMCPclriwf4w2B4kab6qipWQpfwNWuyI+PIPo93P3QgvHvQsuWYOVF1E2uuWkzzoGYokP4fvVI0y9IeDVqnBPA89WDSgfzHhjTmfQ=
+  file_glob: true
+  file: "${TRAVIS_BUILD_DIR}/bin/*.tar.gz"
+  on:
+    tags: true
+    all_branches: true
